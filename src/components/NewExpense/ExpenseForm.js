@@ -6,12 +6,19 @@ const ExpenseForm = () => {
     // const [enteredTitle, setEnteredTitle ] = useState('');
     // const [enteredAmount, setEnteredAmount] = useState('');
     // const [enteredDate,setEnteredDate] = useState('');
-    const [enteredSubmit,setEnteredSubmit] = useState('');
-    useState({});
+    const [userInput, steUserInput] = useState({
+        enteredTitle: '',
+        setEnteredAmount: '',
+        setEnteredDate: ''
+    });
 
 
     const titleChangeHandler = (event) => {
-        setEnteredTitle(event.target.value);
+        //setEnteredTitle(event.target.value);
+        steUserInput({
+        ...userInput,
+        enteredTitle: event.target.value,
+        })
     };
 
     const amountChangeHandler = (event) => {
@@ -21,12 +28,6 @@ const ExpenseForm = () => {
     const dateChangeHandler = (event) => {
         setEnteredDate(event.target.value);
     };
-
-    const submitChangeHandler = (event) => {
-        setEnteredSubmit(event.target.value);
-    };
-
-
 
     return <form>
         <div className='new-expense__controls'>
@@ -47,7 +48,7 @@ const ExpenseForm = () => {
             </div>
 
             <div className="new-expense__actions">
-                <button type="submit" onChange={submitChangeHandler}>Add Expense</button>
+                <button type="submit" >Add Expense</button>
             </div>
         </div>
     </form>
